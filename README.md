@@ -19,3 +19,8 @@ This project is a Java application designed to help college students organize th
 - Add reminders for upcoming deadlines
 - Sort assignments by due date
 - Add a graphical user interface
+
+## Project Documentation
+
+- [Eisenhower Matrix](docs/eisenhower-matrix.md)
+- [System Diagram](docs/system-diagram.png)
