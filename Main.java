@@ -20,7 +20,8 @@ public class Main {
             System.out.println("4. Save Assignments");
             System.out.println("5. Load Assignments");
             System.out.println("6. Delete Assignment");
-            System.out.println("7. Exit");
+            System.out.println("7. Search Assignments by Course");
+            System.out.println("8. Exit");
             System.out.println("Choose an option");
 
             String choice = scanner.nextLine();
@@ -178,6 +179,26 @@ public class Main {
                 }
 
             } else if (choice.equals("7")) {
+                System.out.println("Enter course to search: ");
+                String searchCourse = scanner.nextLine().trim();
+
+                boolean found = false;
+
+                for (int i = 0; i < assignments.size(); i++) {
+                    Assignment assignment = assignments.get(i);
+
+                    if (assignment.toString().toLowerCase()
+                            .contains(searchCourse.toLowerCase())) {
+                        System.out.println((i + 1) + ". " + assignment);
+                        found = true;
+                    }
+                }
+
+                if (!found) {
+                    System.out.println("No matching assignments found.");
+                }
+
+            } else if (choice.equals("8")) {
                 running = false;
                 System.out.println("Goodbye!");
             }
