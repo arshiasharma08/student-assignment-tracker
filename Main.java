@@ -21,7 +21,8 @@ public class Main {
             System.out.println("5. Load Assignments");
             System.out.println("6. Delete Assignment");
             System.out.println("7. Search Assignments by Course");
-            System.out.println("8. Exit");
+            System.out.println("8. Edit Assignment");
+            System.out.println("9. Exit");
             System.out.println("Choose an option");
 
             String choice = scanner.nextLine();
@@ -199,6 +200,53 @@ public class Main {
                 }
 
             } else if (choice.equals("8")) {
+                if (assignments.isEmpty()) {
+                    System.out.println("No assignments to edit.");
+                } else {
+                    for (int i = 0; i < assignments.size(); i++) {
+                        System.out.println((i + 1) + ". " + assignments.get(i));
+                    }
+
+                    System.out.println("Enter assignment to edit:");
+                    try {
+                        int number = Integer.parseInt(scanner.nextLine());
+
+                        if (number < 1 || number > assignments.size()) {
+                            System.out.println("Invalid assignment number.");
+                        } else {
+                            Assignment assignment = assignments.get(number - 1);
+
+                            System.out.println("New assignment name:");
+                            String name = scanner.nextLine().trim();
+
+                            System.out.println("New course:");
+                            String course = scanner.nextLine().trim();
+
+                            System.out.println("New due date (YYYY-MM-DD):");
+                            String dueDate = scanner.nextLine().trim();
+
+                            if (name.isEmpty() || course.isEmpty()) {
+                                System.out.println("Name and course cannot be empty.");
+                            } else {
+                                try {
+                                    java.time.LocalDate.parse(dueDate);
+
+                                    assignment.setName(name);
+                                    assignment.setCourse(course);
+                                    assignment.setDueDate(dueDate);
+
+                                    System.out.println("Assignment updated!");
+                                } catch (java.time.format.DateTimeParseException e) {
+                                    System.out.println("Invalid date. Use YYYY-MM-DD.");
+                                }
+                            }
+                        }
+                    } catch (NumberFormatException e) {
+                        System.out.println("Invalid assignment number: ");
+                    }
+                }
+
+            } else if (choice.equals("9")) {
                 running = false;
                 System.out.println("Goodbye!");
             }

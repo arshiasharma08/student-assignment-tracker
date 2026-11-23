@@ -23,6 +23,18 @@ public class Assignment {
         return dueDate;
     }
 
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public void setCourse(String course) {
+        this.course = course;
+    }
+
+    public void setDueDate(String dueDate) {
+        this.dueDate = dueDate;
+    }
+
     public boolean isCompleted() {
         return completed;
     }
