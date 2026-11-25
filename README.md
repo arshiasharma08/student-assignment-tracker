@@ -121,6 +121,7 @@ Example output:
 - [x] Search assignments by course
 - [x] Edit assignment details
 - [x] Sort assignments by due date
+- [x] The original Schedule features were adjusted during development to focus on searching, editing, and sorting assignments.
 
 ### Future Improvements
 
