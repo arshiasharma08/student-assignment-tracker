@@ -22,7 +22,8 @@ public class Main {
             System.out.println("6. Delete Assignment");
             System.out.println("7. Search Assignments by Course");
             System.out.println("8. Edit Assignment");
-            System.out.println("9. Exit");
+            System.out.println("9. Sort Assignments by Due Date");
+            System.out.println("10. Exit");
             System.out.println("Choose an option");
 
             String choice = scanner.nextLine();
@@ -247,6 +248,19 @@ public class Main {
                 }
 
             } else if (choice.equals("9")) {
+                if (assignments.isEmpty()) {
+                    System.out.println("No assignments to sort.");
+                } else {
+                    assignments.sort((a, b) -> a.getDueDate().compareTo(b.getDueDate()));
+
+                    System.out.println("Assignments sorted by due date!");
+
+                    for (int i = 0; i < assignments.size(); i++) {
+                        System.out.println((i + 1) + ". " + assignments.get(i));
+                    }
+                }
+
+            } else if (choice.equals("10")) {
                 running = false;
                 System.out.println("Goodbye!");
             }
